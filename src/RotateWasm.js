@@ -24,7 +24,7 @@ export default function RotateWasm({
     const usub = new Uint8ClampedArray(buffer, pointer, byteSize);
     usub.set(bitMapArr, 0);
     const imageData = new ImageData(usub, width, height);
-    module.rotate(pointer, width, height);
+    module.rotate_180(pointer, width, height);
     context.putImageData(imageData, 0, 0);
     setLoading(false);
   };
@@ -32,7 +32,7 @@ export default function RotateWasm({
   return (
     <div>
       <div>
-        <button onClick={onStartConverting}>Rotate</button>
+        <button className="rotate-btn" onClick={onStartConverting}>Rotate 180deg</button>
         <br />
         {loading ? "wait for it..." : ""}
         <br />

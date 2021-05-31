@@ -12,3 +12,10 @@ canvas {
   width: 400px
 }
 
+.rotate-btn {
+  padding: 10px 20px;
+  background-color: black;
+  color: #fff;
+  margin-top: 20px;
+  cursor: pointer;
+}

@@ -19,12 +19,6 @@ pub extern "C" fn alloc(size: usize) -> *mut c_void {
     return ptr as *mut c_void;
 }
 
-#[wasm_bindgen]
-extern "C" {
-    #[wasm_bindgen(js_namespace = console)]
-    fn log(s: &str);
-}
-
 #[no_mangle]
 pub extern "C" fn dealloc(ptr: *mut c_void, cap: usize) {
     unsafe {
@@ -33,7 +27,7 @@ pub extern "C" fn dealloc(ptr: *mut c_void, cap: usize) {
 }
 
 #[wasm_bindgen]
-pub fn rotate(pointer: *mut u8, width: usize, height: usize) {
+pub fn rotate_180(pointer: *mut u8, width: usize, height: usize) {
     let pixel_length: usize = 4;
     let line_length = width * pixel_length;
     let half_height_untraited: f32 = (height as f32) / 2.0;
@@ -75,23 +69,5 @@ pub fn rotate(pointer: *mut u8, width: usize, height: usize) {
                 sl[item] = opposite_pixel[is];
             }
         }
-    }
-}
-
-#[wasm_bindgen]
-pub fn rotate_right(pointer: *mut u8, width: usize, height: usize) {
-    let pixel_length: usize = 4;
-    let line_length = width * pixel_length;
-    let size = width * height * pixel_length;
-
-    let sl = unsafe { slice::from_raw_parts_mut(pointer, size) };
-
-    let mut i = 0;
-    while i < size {
-        sl[i] = sl[i] ^ 255; // Invert Red
-        sl[i+1] = sl[i+1] ^ 255; // Invert Green
-        sl[i+2] = sl[i+2] ^ 255; // Invert Blue
-
-        i = i + 1;
     }
 }

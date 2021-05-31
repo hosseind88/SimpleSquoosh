@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect } from "react";
 import GitHubButton from "react-github-btn";
 import styled from "styled-components";
 import RotateWasm from "./RotateWasm";
-import ColorInvertor from "./ColorInvertor";
 
 function App() {
   const [bitMapArr, setBitMapArr] = useState([]);
@@ -27,8 +26,7 @@ function App() {
         module.update = mod.exports.update;
         module.alloc = mod.exports.alloc;
         module.dealloc = mod.exports.dealloc;
-        module.rotate = mod.exports.rotate;
-        module.rotate_right = mod.exports.rotate_right;
+        module.rotate_180 = mod.exports.rotate_180;
 
         const pnt = module.alloc(width * height * 4);
 
@@ -64,15 +62,6 @@ function App() {
       />
       <Buttons show={isImageSelected(bitMapArr)}>
         <RotateWasm
-          bitMapArr={bitMapArr}
-          width={width}
-          height={height}
-          canvas={canvas}
-          pointer={pointer}
-          buffer={buffer}
-          module={module}
-        />
-        <ColorInvertor
           bitMapArr={bitMapArr}
           width={width}
           height={height}
