@@ -1,5 +1,5 @@
 [package]
-name = "wasm-rotate-core"
+name = "wasm-image-editor"
 version = "0.1.0"
 authors = ["hosseind88 <hosseind2017@gmail.com>"]
 edition = "2018"
