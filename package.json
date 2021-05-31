@@ -1,5 +1,5 @@
 {
-  "name": "wasm-rotate",
+  "name": "wasm-image-editor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "copy-wasm": "rm -rf ./public/wasm_rotate_core_bg.wasm && cp ./rust-package/pkg/wasm_rotate_core_bg.wasm  ./public/"
+    "copy-wasm": "rm -rf ./public/wasm_image_editor_bg.wasm && cp ./rust-package/pkg/wasm_image_editor_bg.wasm  ./public/"
   },
   "eslintConfig": {
     "extends": "react-app"

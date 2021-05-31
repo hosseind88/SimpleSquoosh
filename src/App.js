@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     async function fn() {
       if (width > 0 && height > 0) {
-        const response = await fetch("wasm_rotate_core_bg.wasm");
+        const response = await fetch("wasm_image_editor_bg.wasm");
         const bytes = await response.arrayBuffer();
         const results = await WebAssembly.instantiate(bytes, {
           env: { cos: Math.cos },
